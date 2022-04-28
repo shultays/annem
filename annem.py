@@ -39,7 +39,9 @@ def display():
     global im
     global files
     global HRYimage
+    global led1
     
+    GPIO.output(led1, 1)
     print("next")
         
     epd = epd4in2b_V2.EPD()
@@ -51,7 +53,8 @@ def display():
     print("done")
     im = (im + 1) % len(files)
     time.sleep(2)
-
+    GPIO.output(led1, 0)
+    
 t = False
 def onButton(pin):
     global t
@@ -71,6 +74,6 @@ try:
     while True:
         time.sleep(1.0)
 except KeyboardInterrupt:
-    clearScreen()
+    pass
 finally:
     clearScreen()
