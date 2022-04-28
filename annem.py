@@ -80,5 +80,4 @@ def main:
     finally:
         clearScreen()
         
-if __name__ == '__main__':
-    main()
+        
